@@ -1,8 +1,16 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
+import { deleteUser } from "../redux/userReducer";
 
 const Home = () => {
   const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(deleteUser({ id }));
+  };
+
   return (
     <div className="p-2">
       <h1>CRUD Application using Reduxjs/toolkit</h1>
@@ -31,7 +39,12 @@ const Home = () => {
                 >
                   Edit
                 </Link>
-                <button className="ms-1 btn btn-sm btn-danger">Delete</button>
+                <button
+                  onClick={() => handleDelete(user.id)}
+                  className="ms-1 btn btn-sm btn-danger"
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
