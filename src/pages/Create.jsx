@@ -14,7 +14,10 @@ const Create = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addUser({ id: users[users.length - 1].id + 1, name, email }));
+    if (!name && !email) {
+      return alert("Please Enter User Info to Continue");
+    }
+    dispatch(addUser({ name, email, id: users[users.length - 1].id + 1 }));
     navigate("/");
   };
 

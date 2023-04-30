@@ -7,7 +7,6 @@ const Home = () => {
     <div className="p-2">
       <h1>CRUD Application using Reduxjs/toolkit</h1>
       <Link to={"/create"} className="btn btn-success my-3">
-        {" "}
         Create +
       </Link>
       <table className="table">
@@ -26,7 +25,12 @@ const Home = () => {
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>
-                <button className="btn btn-sm btn-primary">Edit</button>
+                <Link
+                  to={`/edit/${user.id}`}
+                  className="btn btn-sm btn-primary"
+                >
+                  Edit
+                </Link>
                 <button className="ms-1 btn btn-sm btn-danger">Delete</button>
               </td>
             </tr>
