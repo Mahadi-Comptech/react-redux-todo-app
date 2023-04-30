@@ -5,8 +5,11 @@ const Home = () => {
   const users = useSelector((state) => state.users);
   return (
     <div className="p-2">
-      <h1>CRUD Application using React-Reduxjs/toolkit</h1>
-      <Link to={'/create'} className="btn btn-success my-3"> Create +</Link>
+      <h1>CRUD Application using Reduxjs/toolkit</h1>
+      <Link to={"/create"} className="btn btn-success my-3">
+        {" "}
+        Create +
+      </Link>
       <table className="table">
         <thead>
           <tr>
