@@ -7,11 +7,19 @@ export const userSlice = createSlice({
   reducers: {
     //reducer methods goes here
     addUser: (state, action) => {
-      console.log(action)
+      console.log(action);
       state.push(action.payload);
+    },
+    updateUser: (state, action) => {
+      const { id, updatedName, updatedEmail } = action.payload;
+      const updatingUser = state.find((user) => user.id == id);
+      if (updatingUser) {
+        updatingUser.name = updatedName;
+        updatingUser.email = updatedEmail;
+      }
     },
   },
 });
 
-export const { addUser } = userSlice.actions;
+export const { addUser, updateUser } = userSlice.actions;
 export default userSlice.reducer;
