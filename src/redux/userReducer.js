@@ -18,8 +18,13 @@ export const userSlice = createSlice({
         updatingUser.email = updatedEmail;
       }
     },
+    deleteUser: (state, action) => {
+      const { id } = action.payload;
+      const deletedUser = state.find((user) => user.id == id);
+      if (deletedUser) return state.filter((user) => user.id !== id);
+    },
   },
 });
 
-export const { addUser, updateUser } = userSlice.actions;
+export const { addUser, updateUser, deleteUser } = userSlice.actions;
 export default userSlice.reducer;
